@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+body{
+    overflow:hidden;
+    background:#071120;
+}
+
+/* MAIN */
+
+.landing-container{
+
+    width:100%;
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        135deg,
+        #050b18,
+        #0d1630,
+        #1a2450
+    );
+
+    position:relative;
+
+    overflow:hidden;
+
+    color:white;
+}
+
+/* GLOW */
+
+.landing-container::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+    height:450px;
+
+    background:#2563eb;
+
+    filter:blur(180px);
+
+    opacity:0.18;
+
+    top:-120px;
+    right:-120px;
+
+    border-radius:50%;
+}
+
+.landing-container::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    background:#4f46e5;
+
+    filter:blur(180px);
+
+    opacity:0.15;
+
+    bottom:-100px;
+    left:-100px;
+
+    border-radius:50%;
+}
+
+/* NAVBAR */
+
+.navbar{
+
+    width:100%;
+
+    padding:28px 70px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    position:relative;
+
+    z-index:10;
+}
+
+/* LOGO */
+
+.logo{
+
+    font-size:42px;
+
+    font-weight:800;
+
+    color:#4f8cff;
+
+    letter-spacing:-2px;
+}
+
+/* BUTTON */
+
+.login-btn{
+
+    padding:14px 28px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #4f8cff
+    );
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.login-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 10px 30px
+    rgba(37,99,235,0.45);
+}
+
+/* HERO */
+
+.hero-section{
+
+    width:100%;
+    min-height:85vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    position:relative;
+
+    z-index:10;
+
+    padding:20px;
+}
+
+/* BADGE */
+
+.hero-badge{
+
+    padding:12px 24px;
+
+    border-radius:40px;
+
+    background:
+    rgba(255,255,255,0.06);
+
+    border:
+    1px solid
+    rgba(255,255,255,0.08);
+
+    color:#cbd5e1;
+
+    font-size:15px;
+
+    margin-bottom:30px;
+
+    backdrop-filter:blur(10px);
+}
+
+/* TITLE */
+
+.hero-section h1{
+
+    width:1000px;
+
+    max-width:95%;
+
+    font-size:90px;
+
+    line-height:1.05;
+
+    font-weight:800;
+
+    letter-spacing:-4px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #ffffff,
+        #8aa8ff
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+}
+
+/* DESCRIPTION */
+
+.hero-section p{
+
+    width:750px;
+
+    max-width:95%;
+
+    margin-top:28px;
+
+    color:#cbd5e1;
+
+    font-size:24px;
+
+    line-height:42px;
+
+    font-weight:400;
+}
+
+/* BUTTONS */
+
+.hero-buttons{
+
+    margin-top:45px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+/* HERO BUTTON */
+
+.hero-btn{
+
+    padding:18px 42px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #4f8cff
+    );
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.hero-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 10px 35px
+    rgba(37,99,235,0.45);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .navbar{
+
+        padding:25px;
+    }
+
+    .logo{
+
+        font-size:34px;
+    }
+
+    .hero-section h1{
+
+        font-size:58px;
+
+        letter-spacing:-2px;
+    }
+
+    .hero-section p{
+
+        font-size:18px;
+
+        line-height:32px;
+    }
+}
+
+@media(max-width:600px){
+
+    .navbar{
+
+        flex-direction:column;
+
+        gap:20px;
+    }
+
+    .hero-section h1{
+
+        font-size:42px;
+    }
+
+    .hero-section p{
+
+        font-size:16px;
+
+        line-height:28px;
+    }
+
+    .hero-btn{
+
+        width:100%;
+    }
+}
