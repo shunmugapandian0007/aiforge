@@ -934,3 +934,164 @@ body,
         transform:translateY(0);
     }
 }
+
+
+
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 768px){
+
+    .main-layout{
+        flex-direction:column;
+        height:auto;
+    }
+
+    /* SIDEBAR */
+
+    .sidebar{
+        width:100%;
+        min-width:100%;
+        height:auto;
+        border-right:none;
+        border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .sidebar-top{
+        padding:18px 14px;
+    }
+
+    .logo h2{
+        font-size:42px;
+    }
+
+    .sidebar-btn{
+        font-size:15px;
+        padding:14px;
+    }
+
+    .history-item{
+        min-height:55px;
+        padding:14px;
+    }
+
+    .profile-card{
+        padding:14px;
+    }
+
+    .profile-info h3{
+        font-size:17px;
+    }
+
+    /* CHAT */
+
+    .chat-page{
+        width:100%;
+    }
+
+    .chat-container{
+        padding:20px 15px 160px;
+    }
+
+    .empty-chat h1{
+        font-size:48px;
+        line-height:1.2;
+    }
+
+    .user-message{
+        max-width:95%;
+        font-size:14px;
+        padding:15px 18px;
+    }
+
+    .ai-message{
+        max-width:100%;
+        font-size:14px;
+        line-height:1.7;
+    }
+
+    /* CODE */
+
+    .code-block-wrapper{
+        width:100%;
+        overflow-x:auto;
+    }
+
+    .code-topbar{
+        height:45px;
+        padding:0 12px;
+    }
+
+    .copy-code-btn{
+        padding:6px 10px;
+        font-size:12px;
+    }
+
+    /* INPUT */
+
+    .input-section{
+        bottom:10px;
+        padding:0 10px;
+    }
+
+    .input-box{
+        border-radius:22px;
+        padding:10px;
+        gap:10px;
+    }
+
+    .input-box textarea{
+        font-size:15px;
+    }
+
+    .input-box button{
+        width:48px;
+        height:48px;
+        border-radius:14px;
+    }
+
+    .image-upload-btn{
+        width:46px;
+        height:46px;
+        min-width:46px;
+        font-size:18px;
+    }
+
+    /* SEARCH */
+
+    .search-modal{
+        width:95%;
+    }
+
+    /* IMAGE */
+
+    .chat-upload-image{
+        width:100%;
+        max-width:260px;
+    }
+}
+
+/* EXTRA SMALL MOBILE */
+
+@media (max-width:480px){
+
+    .logo h2{
+        font-size:34px;
+    }
+
+    .empty-chat h1{
+        font-size:36px;
+    }
+
+    .user-message{
+        font-size:13px;
+    }
+
+    .ai-message{
+        font-size:13px;
+    }
+
+    .input-box textarea{
+        font-size:14px;
+    }
+}
