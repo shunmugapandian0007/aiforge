@@ -8,7 +8,7 @@ from "react-syntax-highlighter";
 import { oneDark }
 from "react-syntax-highlighter/dist/esm/styles/prism";
 
-import { FaArrowUp } from "react-icons/fa";
+import { FaArrowUp, FaBars } from "react-icons/fa";
 
 import {
     FiPlus,
@@ -43,6 +43,8 @@ function BlogGenerator() {
     const [selectedImage, setSelectedImage] = useState(null);
 
     const [editingProfile, setEditingProfile] = useState(false);
+
+    const [sidebarOpen, setSidebarOpen] = useState(false);
 
     const textareaRef = useRef(null);
 
@@ -122,6 +124,8 @@ function BlogGenerator() {
         setPrompt("");
 
         setSelectedImage(null);
+
+        setSidebarOpen(false);
 
         const newHistory = {
 
@@ -302,6 +306,27 @@ function BlogGenerator() {
 
         <div className="main-layout">
 
+            {/* MOBILE TOPBAR */}
+
+            <div className="mobile-topbar">
+
+                <button
+                    className="menu-btn"
+                    onClick={() =>
+                        setSidebarOpen(true)
+                    }
+                >
+
+                    <FaBars />
+
+                </button>
+
+                <h2>AIForge</h2>
+
+            </div>
+
+            {/* SEARCH MODAL */}
+
             {
                 searchOpen && (
 
@@ -323,6 +348,7 @@ function BlogGenerator() {
                                 />
 
                                 <button
+                                    className="close-search-btn"
                                     onClick={() =>
                                         setSearchOpen(false)
                                     }
@@ -370,7 +396,45 @@ function BlogGenerator() {
                 )
             }
 
-            <div className="sidebar">
+            {/* SIDEBAR OVERLAY */}
+
+            {
+                sidebarOpen && (
+
+                    <div
+                        className="sidebar-overlay"
+                        onClick={() =>
+                            setSidebarOpen(false)
+                        }
+                    ></div>
+                )
+            }
+
+            {/* SIDEBAR */}
+
+            <div
+                className={
+                    sidebarOpen
+                        ? "sidebar active"
+                        : "sidebar"
+                }
+            >
+
+                <div className="sidebar-header-mobile">
+
+                    <h2>AIForge</h2>
+
+                    <button
+                        onClick={() =>
+                            setSidebarOpen(false)
+                        }
+                    >
+
+                        <FiX />
+
+                    </button>
+
+                </div>
 
                 <div className="sidebar-top">
 
@@ -423,11 +487,14 @@ function BlogGenerator() {
                                 >
 
                                     <span
-                                        onClick={() =>
+                                        onClick={() => {
+
                                             setMessages(
                                                 chat.messages
-                                            )
-                                        }
+                                            );
+
+                                            setSidebarOpen(false);
+                                        }}
                                     >
 
                                         {chat.title}
@@ -549,6 +616,8 @@ function BlogGenerator() {
 
             </div>
 
+            {/* CHAT PAGE */}
+
             <div className="chat-page">
 
                 <div className="chat-container">
@@ -645,7 +714,7 @@ function BlogGenerator() {
 
                                                                     <FiCopy />
 
-                                                                    Copy code
+                                                                    Copy
 
                                                                 </button>
 
@@ -696,15 +765,7 @@ function BlogGenerator() {
                                                 <div className="chatgpt-actions">
 
                                                     <button
-
                                                         className="chat-action-btn"
-
-                                                        onClick={() => {
-
-                                                            navigator.clipboard.writeText(
-                                                                msg.text
-                                                            );
-                                                        }}
                                                     >
 
                                                         <FiCopy />
@@ -712,36 +773,7 @@ function BlogGenerator() {
                                                     </button>
 
                                                     <button
-
                                                         className="chat-action-btn"
-
-                                                        onClick={() => {
-
-                                                            const blob =
-                                                                new Blob(
-                                                                    [msg.text],
-                                                                    {
-                                                                        type:"text/plain"
-                                                                    }
-                                                                );
-
-                                                            const url =
-                                                                window.URL.createObjectURL(
-                                                                    blob
-                                                                );
-
-                                                            const a =
-                                                                document.createElement("a");
-
-                                                            a.href = url;
-
-                                                            a.download =
-                                                                "aiforge-response.txt";
-
-                                                            a.click();
-
-                                                            window.URL.revokeObjectURL(url);
-                                                        }}
                                                     >
 
                                                         <FiDownload />
@@ -787,6 +819,8 @@ function BlogGenerator() {
                     <div ref={chatEndRef}></div>
 
                 </div>
+
+                {/* INPUT */}
 
                 <div className="input-section">
 
